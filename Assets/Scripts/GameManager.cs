@@ -18,11 +18,14 @@ using UnityEngine.SceneManagement;
  *      
  * Revision History:
  *      - Initial creation
- *      - Added SceneChange method
+ *      - Added ChangeScene method
+ *      - Added ExitGame method
  */
 
 public class GameManager : MonoBehaviour
 {
+    public AudioSource backgroundMusic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +38,13 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void SceneChange(int i)
+    public void ChangeScene(int i)
     {
         SceneManager.LoadScene(i);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
