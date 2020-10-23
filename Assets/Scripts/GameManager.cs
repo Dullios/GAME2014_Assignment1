@@ -11,15 +11,14 @@ using UnityEngine.SceneManagement;
  *      Russell Brabers - 101192571
  * 
  * Date Modified: 
- *      October 3, 2020
+ *      October 23, 2020
  * 
  * Description:
  *      A script to manage the scene transitions and other miscellaneous functions of the game
  *      
  * Revision History:
  *      - Initial creation
- *      - Added ChangeScene method
- *      - Added ExitGame method
+ *      - Added ChangeScene and ExitGame methods
  */
 
 public class GameManager : MonoBehaviour
@@ -29,7 +28,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
