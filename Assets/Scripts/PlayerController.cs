@@ -13,11 +13,11 @@ using UnityEngine;
  *      October 24, 2020
  * 
  * Description:
- *      A script to manage the scene transitions and other miscellaneous functions of the game
+ *      A script to control the movement and functions of the player character
  *      
  * Revision History:
  *      - Initial creation
- *      - 
+ *      - Added Move and CheckBounds methods
  */
 
 public class PlayerController : MonoBehaviour
@@ -51,10 +51,10 @@ public class PlayerController : MonoBehaviour
         float verticalDir = 0.0f;
         float horizontalDir = 0.0f;
 
-        foreach(Touch touch in Input.touches)
+        foreach (Touch touch in Input.touches)
         {
             var worldTouch = Camera.main.ScreenToWorldPoint(touch.position);
-
+            Debug.Log("World Touch: " + worldTouch.x);
             if (worldTouch.x > transform.position.x)
                 horizontalDir = 1.0f;
             else if (worldTouch.x < transform.position.x)
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
             touchEnded = worldTouch;
         }
 
-        if(touchEnded.x != 0.0f && touchEnded.y != 0.0f)
+        if(touchEnded.x <= 0.0f && touchEnded.y != 0.0f)
             transform.position = new Vector3(Mathf.Lerp(transform.position.x, touchEnded.x, timeValue), Mathf.Lerp(transform.position.y, touchEnded.y, timeValue), 0.0f);
         else
         {
