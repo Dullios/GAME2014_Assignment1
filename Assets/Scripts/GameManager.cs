@@ -12,10 +12,10 @@ using UnityEngine.UI;
  *      Russell Brabers - 101192571
  * 
  * Date Modified: 
- *      October 23, 2020
+ *      October 24, 2020
  * 
  * Description:
- *      A script to manage the scene transitions and other miscellaneous functions of the game
+ *      A script to manage the scene transitions and UI functions of the game
  *      
  * Revision History:
  *      - Initial creation
@@ -24,6 +24,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static int score;
+
     public AudioSource backgroundMusic;
 
     // Start is called before the first frame update
