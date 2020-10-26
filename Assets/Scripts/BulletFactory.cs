@@ -17,7 +17,7 @@ using UnityEngine;
  *      
  * Revision History:
  *      - Initial creation
- *      - 
+ *      - Added createBullet method
  */
 
 public class BulletFactory
@@ -46,6 +46,12 @@ public class BulletFactory
         enemyBullet = (GameObject)Resources.Load("Enemy_Bullet");
     }
 
+    /// <summary>
+    /// Instantiates a bullet object of BulletType attached to a parent game object
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="parent"></param>
+    /// <returns></returns>
     public GameObject createBullet(BulletType type, Transform parent)
     {
         GameObject tempBullet = null;

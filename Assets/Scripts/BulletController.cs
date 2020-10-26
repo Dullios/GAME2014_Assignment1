@@ -17,7 +17,7 @@ using UnityEngine;
  *      
  * Revision History:
  *      - Initial creation
- *      - 
+ *      - Added CheckBounds method
  */
 
 public class BulletController : MonoBehaviour
@@ -62,6 +62,8 @@ public class BulletController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        // TODO: check player and enemy collisions
+
         bulletManager.ReturnBullet(bulletType, gameObject);
     }
 }
