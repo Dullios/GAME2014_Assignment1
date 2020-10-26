@@ -38,8 +38,13 @@ public class GameManager : MonoBehaviour
         {
             score = value;
             FindObjectOfType<HUDManager>().UpdateScore(score);
+            
+            if (score > 0 && score % 1000 == 0)
+                dropPowerUp = true;
         }
     }
+
+    public static bool dropPowerUp;
 
     public AudioSource backgroundMusic;
 
@@ -78,7 +83,7 @@ public class GameManager : MonoBehaviour
                 break;
             case "MainGame":
                 PlayMusic((AudioClip)Resources.Load("Audio/Mercury"));
-                FindObjectOfType<Button>().onClick.AddListener(delegate { ChangeScene(3); });
+                //FindObjectOfType<Button>().onClick.AddListener(delegate { ChangeScene(3); });
 
                 // Reset game stats
                 Score = 0;

@@ -28,12 +28,6 @@ public class BulletController : MonoBehaviour
     public int speed;
     public float boundary;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -62,7 +56,6 @@ public class BulletController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        // TODO: check player and enemy collisions
         if(collision.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerController>().OnHit.Invoke();

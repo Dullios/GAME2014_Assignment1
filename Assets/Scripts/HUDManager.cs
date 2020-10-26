@@ -19,6 +19,7 @@ using UnityEngine;
  * Revision History:
  *      - Initial creation
  *      - Added methods to update the score and health UI
+ *      - Added IncreaseHealth and DecreaseHealth methods to call
  */
 
 public class HUDManager : MonoBehaviour
@@ -44,13 +45,38 @@ public class HUDManager : MonoBehaviour
     }
     
     /// <summary>
-    /// Method to update health UI
+    /// Method to increase health by 1 before updating UI
     /// </summary>
-    public void UpdateHealth()
+    public void IncreaseHealth()
     {
-        healthBars[health].gameObject.SetActive(false);
+        health = health == 2 ? health : health + 1;
+        UpdateHealth();
+    }
+
+    /// <summary>
+    /// Method to decrease health by 1 before updating UI
+    /// </summary>
+    public void DecreaseHealth()
+    {
         health--;
+
         if (health < 0)
             FindObjectOfType<GameManager>().ChangeScene(3);
+
+        UpdateHealth();
+    }
+
+    /// <summary>
+    /// Method to update health UI
+    /// </summary>
+    private void UpdateHealth()
+    {
+        for(int i = 0; i < healthBars.Length; i++)
+        {
+            if (i <= health)
+                healthBars[i].SetActive(true);
+            else
+                healthBars[i].SetActive(false);
+        }
     }
 }

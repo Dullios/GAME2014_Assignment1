@@ -250,6 +250,7 @@ MonoBehaviour:
   - {fileID: 2050539229}
   - {fileID: 376645778}
   - {fileID: 1347108527}
+  health: 0
 --- !u!1 &715830626
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave1: {fileID: 1140164858}
   wave2: {fileID: 2051489725}
+  waveNum: 0
   flightTime: 0
   spawnBool: 0
   moveBool: 0
@@ -914,7 +916,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 435181076}
         m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
-        m_MethodName: UpdateHealth
+        m_MethodName: DecreaseHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1132,6 +1134,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 665072396590933764, guid: 4c7b9e23c34a491458520235a4406c7e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 665072397417152304, guid: 4c7b9e23c34a491458520235a4406c7e, type: 3}
       propertyPath: m_Name
       value: Canvas

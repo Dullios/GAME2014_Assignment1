@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
 {
     public BulletManager bulletManager;
 
+    public int maxHealth;
     public int health;
 
     // Start is called before the first frame update
@@ -53,7 +54,14 @@ public class EnemyController : MonoBehaviour
 
         if (health == 0)
         {
-            GameObject.Destroy(gameObject);
+            if(GameManager.dropPowerUp)
+            {
+                GameObject.Instantiate((GameObject)Resources.Load("powerupGreen"), gameObject.transform.position, new Quaternion(0, 0, 0, 0));
+                GameManager.dropPowerUp = false;
+            }
+
+            health = maxHealth;
+            gameObject.SetActive(false);
             GameManager.Score += 100;
         }
     }
