@@ -17,7 +17,7 @@ using UnityEngine;
  *      
  * Revision History:
  *      - Initial creation
- *      - Added createBullet method
+ *      - Added CreateBullet method
  */
 
 public class BulletFactory
@@ -52,7 +52,7 @@ public class BulletFactory
     /// <param name="type"></param>
     /// <param name="parent"></param>
     /// <returns></returns>
-    public GameObject createBullet(BulletType type, Transform parent)
+    public GameObject CreateBullet(BulletType type, Transform parent)
     {
         GameObject tempBullet = null;
 

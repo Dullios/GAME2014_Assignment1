@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        bulletManager = FindObjectOfType<BulletManager>();
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
     }
 
     /// <summary>
-    /// Called by colliding object to reduce enemy health and check if it needs recycling
+    /// Called by colliding object to reduce enemy health and destroy it
     /// </summary>
     public void OnHit()
     {
@@ -53,7 +53,8 @@ public class EnemyController : MonoBehaviour
 
         if (health == 0)
         {
-            // Recycle and increase score
+            GameObject.Destroy(gameObject);
+            GameManager.Score += 100;
         }
     }
 }

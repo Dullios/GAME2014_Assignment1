@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /*
  * File:
@@ -19,10 +20,13 @@ using UnityEngine;
  *      - Initial creation
  *      - Added Move and CheckBounds methods
  *      - Added BulletManager reference
+ *      - Added OnHit unity event to run when player is hit
  */
 
 public class PlayerController : MonoBehaviour
 {
+    public UnityEvent OnHit;
+
     public BulletManager bulletManager;
 
     [Header("Player Movement")]
@@ -58,7 +62,7 @@ public class PlayerController : MonoBehaviour
         foreach (Touch touch in Input.touches)
         {
             var worldTouch = Camera.main.ScreenToWorldPoint(touch.position);
-            Debug.Log("World Touch: " + worldTouch.x);
+            
             if (worldTouch.x > transform.position.x)
                 horizontalDir = 1.0f;
             else if (worldTouch.x < transform.position.x)

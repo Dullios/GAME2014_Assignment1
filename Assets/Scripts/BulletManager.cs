@@ -54,13 +54,13 @@ public class BulletManager : MonoBehaviour
 
         for(int i = 0; i < maxBullets; i++)
         {
-            var tempPlayBullet = BulletFactory.Instance().createBullet(BulletType.PlayerBullet, playerAmmo.transform);
+            var tempPlayBullet = BulletFactory.Instance().CreateBullet(BulletType.PlayerBullet, playerAmmo.transform);
             tempPlayBullet.GetComponent<BulletController>().bulletType = BulletType.PlayerBullet;
             tempPlayBullet.GetComponent<BulletController>().bulletManager = this;
             tempPlayBullet.SetActive(false);
             playerBulletPool.Enqueue(tempPlayBullet);
 
-            var tempNmeBullet = BulletFactory.Instance().createBullet(BulletType.EnemyBullet, enemyAmmo.transform);
+            var tempNmeBullet = BulletFactory.Instance().CreateBullet(BulletType.EnemyBullet, enemyAmmo.transform);
             tempNmeBullet.GetComponent<BulletController>().bulletType = BulletType.EnemyBullet;
             tempNmeBullet.GetComponent<BulletController>().bulletManager = this;
             tempNmeBullet.SetActive(false);

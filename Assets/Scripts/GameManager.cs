@@ -12,7 +12,7 @@ using UnityEngine.UI;
  *      Russell Brabers - 101192571
  * 
  * Date Modified: 
- *      October 24, 2020
+ *      October 26, 2020
  * 
  * Description:
  *      A script to manage the scene transitions and UI functions of the game
@@ -20,11 +20,24 @@ using UnityEngine.UI;
  * Revision History:
  *      - Initial creation
  *      - Added ChangeScene and ExitGame methods
+ *      - Added static score variable
  */
 
 public class GameManager : MonoBehaviour
 {
-    public static int score;
+    private static int score;
+    public static int Score
+    {
+        get
+        {
+            return score;
+        }
+        set
+        {
+            score += value;
+            // TODO: update UI
+        }
+    }
 
     public AudioSource backgroundMusic;
 

@@ -63,6 +63,14 @@ public class BulletController : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         // TODO: check player and enemy collisions
+        if(collision.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerController>().OnHit.Invoke();
+        }
+        else if(collision.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyController>().OnHit();
+        }
 
         bulletManager.ReturnBullet(bulletType, gameObject);
     }
