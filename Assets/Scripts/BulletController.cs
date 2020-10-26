@@ -22,6 +22,9 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    public BulletManager bulletManager;
+
+    public BulletType bulletType;
     public int speed;
     public float boundary;
 
@@ -43,12 +46,22 @@ public class BulletController : MonoBehaviour
     {
         if(transform.position.x > boundary || transform.position.x < -boundary)
         {
-            // Recycle
+            switch(bulletType)
+            {
+                case BulletType.PlayerBullet:
+                    bulletManager.ReturnBullet(bulletType, gameObject);
+                    break;
+                case BulletType.LaserBullet:
+                    break;
+                case BulletType.EnemyBullet:
+                    bulletManager.ReturnBullet(bulletType, gameObject);
+                    break;
+            }
         }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        // Recycle
+        bulletManager.ReturnBullet(bulletType, gameObject);
     }
 }

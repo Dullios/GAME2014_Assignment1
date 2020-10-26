@@ -10,7 +10,7 @@ using UnityEngine;
  *      Russell Brabers - 101192571
  * 
  * Date Modified: 
- *      October 24, 2020
+ *      October 25, 2020
  * 
  * Description:
  *      A script to control the movement and functions of the player character
@@ -18,10 +18,13 @@ using UnityEngine;
  * Revision History:
  *      - Initial creation
  *      - Added Move and CheckBounds methods
+ *      - Added BulletManager reference
  */
 
 public class PlayerController : MonoBehaviour
 {
+    public BulletManager bulletManager;
+
     [Header("Player Movement")]
     public float speed;
     public float leftBoundary;
@@ -44,6 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         CheckBounds();
+        FireBullet();
     }
 
     private void Move()
@@ -68,7 +72,7 @@ public class PlayerController : MonoBehaviour
             touchEnded = worldTouch;
         }
 
-        if(touchEnded.x <= 0.0f && touchEnded.y != 0.0f)
+        if (touchEnded.x <= 0.0f && touchEnded.y != 0.0f)
             transform.position = new Vector3(Mathf.Lerp(transform.position.x, touchEnded.x, timeValue), Mathf.Lerp(transform.position.y, touchEnded.y, timeValue), 0.0f);
         else
         {
@@ -88,5 +92,11 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, verticalBoundary, 0.0f);
         else if (transform.position.y <= -verticalBoundary)
             transform.position = new Vector3(transform.position.x, -verticalBoundary, 0.0f);
+    }
+
+    private void FireBullet()
+    {
+        if (Time.frameCount % 60 == 0)
+            bulletManager.GetBullet(BulletType.PlayerBullet, gameObject.transform.position);
     }
 }

@@ -46,8 +46,25 @@ public class BulletFactory
         enemyBullet = (GameObject)Resources.Load("Enemy_Bullet");
     }
 
-    //public GameObject createBullet()
-    //{
+    public GameObject createBullet(BulletType type, Transform parent)
+    {
+        GameObject tempBullet = null;
 
-    //}
+        switch(type)
+        {
+            case BulletType.PlayerBullet:
+                tempBullet = GameObject.Instantiate(playerBullet);
+                tempBullet.transform.parent = parent;
+                break;
+            case BulletType.LaserBullet:
+
+                break;
+            case BulletType.EnemyBullet:
+                tempBullet = GameObject.Instantiate(enemyBullet);
+                tempBullet.transform.parent = parent;
+                break;
+        }
+
+        return tempBullet;
+    }
 }
