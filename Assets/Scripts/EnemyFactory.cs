@@ -17,7 +17,7 @@ using UnityEngine;
  *      
  * Revision History:
  *      - Initial creation
- *      - 
+ *      - Added CreateEnemy method
  */
 
 public class EnemyFactory

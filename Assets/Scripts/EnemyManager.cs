@@ -70,8 +70,14 @@ public class EnemyManager : MonoBehaviour
         {
             MoveWave(1);
         }
+        else
+            flightTime = 0.0f;
     }
 
+    /// <summary>
+    /// Get Enemy game objects and assign them to a wave
+    /// </summary>
+    /// <param name="wave"></param>
     public void SpawnWave(int wave)
     {
         GameObject tempEnemy;
@@ -96,6 +102,10 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Method to move a given wave over time from its start to end position
+    /// </summary>
+    /// <param name="wave"></param>
     private void MoveWave(int wave)
     {
         switch(wave)
@@ -109,7 +119,9 @@ public class EnemyManager : MonoBehaviour
                         flightTime += 0.002f;
                     }
                     else
+                    {
                         moveBool = false;
+                    }
                 }
                 break;
             case 2:
@@ -117,6 +129,9 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Method to set up start and end positions of enemy waves through brute force
+    /// </summary>
     private void CreateWaves()
     {
         #region Wave1

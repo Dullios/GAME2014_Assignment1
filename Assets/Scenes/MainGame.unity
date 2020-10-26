@@ -223,6 +223,33 @@ MonoBehaviour:
   - {fileID: 1738428192}
   index: 0
   speed: -0.01
+--- !u!1 &376645778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 665072396629033091, guid: 4c7b9e23c34a491458520235a4406c7e, type: 3}
+  m_PrefabInstance: {fileID: 665072397705365184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &435181075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 665072397417152304, guid: 4c7b9e23c34a491458520235a4406c7e, type: 3}
+  m_PrefabInstance: {fileID: 665072397705365184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &435181076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435181075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 011f3691ca803dd4baedaa6803a3e7ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1868030564}
+  healthBars:
+  - {fileID: 2050539229}
+  - {fileID: 376645778}
+  - {fileID: 1347108527}
 --- !u!1 &715830626
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave1: {fileID: 1140164858}
   wave2: {fileID: 2051489725}
-  flightTime: 0.1
+  flightTime: 0
   spawnBool: 0
   moveBool: 0
 --- !u!1 &717159616
@@ -748,6 +775,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1347108527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 665072397251472971, guid: 4c7b9e23c34a491458520235a4406c7e, type: 3}
+  m_PrefabInstance: {fileID: 665072397705365184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613955675
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +911,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 435181076}
+        m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
+        m_MethodName: UpdateHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   bulletManager: {fileID: 20148105}
   speed: 2
   leftBoundary: -8.2
@@ -1041,6 +1085,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1868030564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 665072396659404926, guid: 4c7b9e23c34a491458520235a4406c7e, type: 3}
+  m_PrefabInstance: {fileID: 665072397705365184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2050539229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 665072397940100781, guid: 4c7b9e23c34a491458520235a4406c7e, type: 3}
+  m_PrefabInstance: {fileID: 665072397705365184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2051489725
 GameObject:
   m_ObjectHideFlags: 0
